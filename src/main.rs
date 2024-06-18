@@ -26,8 +26,8 @@ fn random_seed() {
 
     println!("Writing...");
 
-    fs::File::create("seed.txt").expect("File creation/truncation failure");
-    fs::write("seed.txt", seed).expect("File write failure");
+    fs::File::create("src/seed.txt").expect("File creation/truncation failure");
+    fs::write("src/seed.txt", seed).expect("File write failure");
 }
 
 fn print_2d(array: &Vec<Vec<u32>>, size: isize) -> () {
@@ -205,7 +205,7 @@ fn main() {
         if end {
             break;
         } else {
-            let seed = match fs::read_to_string("seed.txt") {
+            let seed = match fs::read_to_string("src/seed.txt") {
                 Ok(steps) => steps,
                 Err(e) => String::from(format!("{}", e)),
             };
